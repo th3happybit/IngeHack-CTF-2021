@@ -1,11 +1,12 @@
 import hashlib
 
+# extracted from apk
 firstCheckHash = "4f413a1f2c3501bdf30305cacea8d42230e853a0e44500b7aa0ca5f376a23748"
-
 secondCheckDump = [236, 6, 13, 236, 12, 14, 236, 11, 8, 238, 11, 1, 245, 11, 250]
 secondCheckSum = 1557
-
 thirdCheckDump = [227, 147, 245, 214, 103, 118, 241, 64, 251, 85]
+
+# get certificat sha256 with `keytool -printcert -jarfile seruro.apk`
 thirdCheckCertificatHash = [0xF5,0x8F,0xE3,0xCA,0x71,0x54,0xD0,0x55,0xE0,0x40]
 
 def crack_first_hash(hash):
