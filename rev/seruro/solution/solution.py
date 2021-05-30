@@ -1,5 +1,6 @@
 import hashlib
 
+# flag ==> IngeHack{53rur0_7h3_unbr34k4bl3_l0ck}
 # extracted from apk
 firstCheckHash = "4f413a1f2c3501bdf30305cacea8d42230e853a0e44500b7aa0ca5f376a23748"
 secondCheckDump = [236, 6, 13, 236, 12, 14, 236, 11, 8, 238, 11, 1, 245, 11, 250]
