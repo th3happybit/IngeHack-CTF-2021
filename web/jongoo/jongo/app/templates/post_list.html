@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %} 
+{% for post in posts %}
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row g-0">
+      <div class="col-md-7 ps-md-3 pt-3 pt-md-0 d-flex flex-column">
+        <h2 class="card-title h5">
+          <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
+        </h2>
+
+        <div class="text-muted">
+          <small> Published {{ post.publish.date }} </small>
+        </div>
+        <p class="card-text mb-auto py-2">
+          {{ post.body|safe|striptags|truncatechars:100 }}
+        </p>
+        <div>
+          <a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-sm"
+            >Read more</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} {% include "pagination.html" with page=posts %}
+{% endblock content%}

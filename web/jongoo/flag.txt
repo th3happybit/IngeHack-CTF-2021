@@ -1,0 +1,1 @@
+IngeHack{g0000000000d_h3r3_1s_y0ur_fl4g_https://docs.djangoproject.com/fr/3.2/topics/http/sessions/#using-cookie-based-sessions}

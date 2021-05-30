@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jongo:
+    image: jongo
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./flag.txt:/flag.txt
+    environment:
+      - DJANGO_SETTINGS_MODULE=jongo.settings
+      - SECRET_KEY=ic6pqu2hqzoq)2f00nz-9-(b=^jsx%%l3)vkxo#h2ypqr4)pt!

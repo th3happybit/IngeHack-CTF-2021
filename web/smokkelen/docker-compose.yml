@@ -1,0 +1,29 @@
+version: '3'
+services:
+  varnish:
+    image: chall-varnish
+    build:
+      context: .
+      dockerfile: varnish.dockerfile
+    volumes:
+      - "./conf/default.vcl:/etc/varnish/default.vcl"
+    ports:
+      - "1337:80"
+    depends_on:
+      - apache
+      - api
+    links:
+      - apache:client.haxor
+      - api:api.haxor
+  apache:
+    image: chall-apache
+    build:
+      context: .
+      dockerfile: apache.dockerfile
+    volumes: 
+      - "./client:/usr/local/apache2/htdocs/"
+  api:
+    image: chall-api
+    build:
+      context: .
+      dockerfile: flask.dockerfile
