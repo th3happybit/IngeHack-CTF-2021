@@ -6,7 +6,7 @@ import Router from "next/router";
 
 class MyApp extends App {
   componentDidMount() {
-    let comment = document.createComment(`IngeHack`);
+    let comment = document.createComment(`Welcome to IngeHack`);
     document.insertBefore(comment, document.documentElement);
   }
   static async getInitialProps({ Component, router, ctx }) {
@@ -20,7 +20,7 @@ class MyApp extends App {
   }
   render() {
     const { Component, pageProps } = this.props;
-    const s3cr3t = "inghack{w33b_d3v_guru}"
+    const s3cr3t = "SW5nZUhhY2t7dzMzYl9kM3ZfZ3VydX0="
     const modifiedProps = {...pageProps, s3cr3t }
     return (
         <React.Fragment>
