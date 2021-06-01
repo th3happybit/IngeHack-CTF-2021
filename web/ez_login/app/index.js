@@ -6,7 +6,9 @@ app.use(cookieParser());
 
 const PORT = 3000;
 const AUTHORIZED_TOKENS = {};
+const FLAG = 'IngeHack{fake_flag_for_testing}'
 
+// a very gooood auth middleware
 const isAuthorized = (req, res, next) => {
   if (req.cookies) {
     const token = req.cookies.token;
@@ -21,7 +23,7 @@ const isAuthorized = (req, res, next) => {
 
 app.get("/", isAuthorized, (req, res) => {
   res.json({
-    message: "Good job! here is your flag: IngeHack{}",
+    message: `Good job! here is your flag: ${FLAG}`,
   });
 });
 
