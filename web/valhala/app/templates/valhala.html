@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>i18n</title>
+    <link href="{{ url_for('static', path='/css/cross_site_style.css') }}" rel="stylesheet">
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <nav>
+          <div class="logo">
+            <h1>ᚡᚨᛚᚺᚨᛚᚨ</h1>
+          </div>
+          <div class="menu">
+            <ul>
+              <li><a href="#">ᚺᛟᛗᛖ</a></li>
+              <li><a href="#">ᚨᛒᛟᚢᛏ</a></li>
+              <li><a href="#">ᛒᛚᛟᚷ</a></li>
+              <li><a href="#">ᚲᛟᚾᛏᚨᚲᛏ</a></li>
+              <li>
+                <button onclick="window.location.search='?lang=en'">ᛖᚾᚷᛚᛁᛋᚺ</button>
+              </li>
+              <li>
+                <button onclick="window.location.search='?lang=no'">ᚾᛟᚱᚹᚨᚤ</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div  id="output" class="container">
+      </div>
+    </div>
+
+    <footer>
+      <address>ᛚᛖᛖᛏ</address>
+    </footer>
+
+    <script src="/static/js/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.8.5/i18next.min.js"></script>
+    <script>
+        i18next.init(
+          {
+            lng: "en",
+            debug: true,
+            resources: {
+              en: {
+                translation: {
+                  key: "ᚹᛖ ᛒᛖᛚᛁᛖᚡᛖ ᛏᚺᚨᛏ ᚹᛖ ᚲᚨᚾ ᚲᚺᚨᚾᚷᛖ ᛏᚺᛖ ᛏᚺᛁᚾᚷᛋ ᚨᚱᛟᚢᚾᛞ ᚢᛋ ᛁᚾ ᚨᚲᚲᛟᚱᛞᚨᚾᚲᛖ ᚹᛁᛏᚺ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ—ᚹᛖ ᛒᛖᛚᛁᛖᚡᛖ ᛁᛏ ᛒᛖᚲᚨᚢᛋᛖ ᛟᛏᚺᛖᚱᚹᛁᛋᛖ ᚹᛖ ᚲᚨᚾ ᛋᛖᛖ ᚾᛟ ᚠᚨᚡᛟᚢᚱᚨᛒᛚᛖ ᛟᚢᛏᚲᛟᛗᛖ. ᚹᛖ ᛞᛟ ᚾᛟᛏ ᛏᚺᛁᚾᚴ ᛟᚠ ᛏᚺᛖ ᛟᚢᛏᚲᛟᛗᛖ ᚹᚺᛁᚲᚺ ᚷᛖᚾᛖᚱᚨᛚᛚᚤ ᚲᛟᛗᛖᛋ ᛏᛟ ᛈᚨᛋᛋ ᚨᚾᛞ ᛁᛋ ᚨᛚᛋᛟ ᚠᚨᚡᛟᚢᚱᚨᛒᛚᛖ: ᚹᛖ ᛞᛟ ᚾᛟᛏ ᛋᚢᚲᚲᛖᛖᛞ ᛁᚾ ᚲᚺᚨᚾᚷᛁᚾᚷ ᛏᚺᛁᚾᚷᛋ ᛁᚾ ᚨᚲᚲᛟᚱᛞᚨᚾᚲᛖ ᚹᛁᛏᚺ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ, ᛒᚢᛏ ᚷᚱᚨᛞᚢᚨᛚᛚᚤ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ ᚲᚺᚨᚾᚷᛖ. ᛏᚺᛖ ᛋᛁᛏᚢᚨᛏᛁᛟᚾ ᛏᚺᚨᛏ ᚹᛖ ᚺᛟᛈᛖᛞ ᛏᛟ ᚲᚺᚨᚾᚷᛖ ᛒᛖᚲᚨᚢᛋᛖ ᛁᛏ ᚹᚨᛋ ᛁᚾᛏᛟᛚᛖᚱᚨᛒᛚᛖ ᛒᛖᚲᛟᛗᛖᛋ ᚢᚾᛁᛗᛈᛟᚱᛏᚨᚾᛏ ᛏᛟ ᚢᛋ. ᚹᛖ ᚺᚨᚡᛖ ᚠᚨᛁᛚᛖᛞ ᛏᛟ ᛋᚢᚱᛗᛟᚢᚾᛏ ᛏᚺᛖ ᛟᛒᛋᛏᚨᚲᛚᛖ, ᚨᛋ ᚹᛖ ᚹᛖᚱᛖ ᚨᛒᛋᛟᛚᚢᛏᛖᛚᚤ ᛞᛖᛏᛖᚱᛗᛁᚾᛖᛞ ᛏᛟ ᛞᛟ, ᛒᚢᛏ ᛚᛁᚠᛖ ᚺᚨᛋ ᛏᚨᚴᛖᚾ ᚢᛋ ᚱᛟᚢᚾᛞ ᛁᛏ, ᛚᛖᛞ ᚢᛋ ᛒᛖᚤᛟᚾᛞ ᛁᛏ, ᚨᚾᛞ ᛏᚺᛖᚾ ᛁᚠ ᚹᛖ ᛏᚢᚱᚾ ᚱᛟᚢᚾᛞ ᛏᛟ ᚷᚨᛉᛖ ᛁᚾᛏᛟ ᛏᚺᛖ ᛞᛁᛋᛏᚨᚾᚲᛖ ᛟᚠ ᛏᚺᛖ ᛈᚨᛋᛏ, ᚹᛖ ᚲᚨᚾ ᛒᚨᚱᛖᛚᚤ ᛋᛖᛖ ᛁᛏ, ᛋᛟ ᛁᛗᛈᛖᚱᚲᛖᛈᛏᛁᛒᛚᛖ ᚺᚨᛋ ᛁᛏ ᛒᛖᚲᛟᛗᛖ.” – ᛗᚨᚱᚲᛖᛚ ᛈᚱᛟᚢᛋᛏ, ᛁᚾ ᛋᛖᚨᚱᚲᚺ ᛟᚠ ᛚᛟᛋᛏ ᛏᛁᛗᛖ.",
+                },
+              },
+              no: {
+                translation: {
+                  key: "ᚹᛖ ᛒᛖᛚᛁᛖᚡᛖ ᛏᚺᚨᛏ ᚹᛖ ᚲᚨᚾ ᚲᚺᚨᚾᚷᛖ ᛏᚺᛖ ᛏᚺᛁᚾᚷᛋ ᚨᚱᛟᚢᚾᛞ ᚢᛋ ᛁᚾ ᚨᚲᚲᛟᚱᛞᚨᚾᚲᛖ ᚹᛁᛏᚺ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ—ᚹᛖ ᛒᛖᛚᛁᛖᚡᛖ ᛁᛏ ᛒᛖᚲᚨᚢᛋᛖ ᛟᛏᚺᛖᚱᚹᛁᛋᛖ ᚹᛖ ᚲᚨᚾ ᛋᛖᛖ ᚾᛟ ᚠᚨᚡᛟᚢᚱᚨᛒᛚᛖ ᛟᚢᛏᚲᛟᛗᛖ. ᚹᛖ ᛞᛟ ᚾᛟᛏ ᛏᚺᛁᚾᚴ ᛟᚠ ᛏᚺᛖ ᛟᚢᛏᚲᛟᛗᛖ ᚹᚺᛁᚲᚺ ᚷᛖᚾᛖᚱᚨᛚᛚᚤ ᚲᛟᛗᛖᛋ ᛏᛟ ᛈᚨᛋᛋ ᚨᚾᛞ ᛁᛋ ᚨᛚᛋᛟ ᚠᚨᚡᛟᚢᚱᚨᛒᛚᛖ: ᚹᛖ ᛞᛟ ᚾᛟᛏ ᛋᚢᚲᚲᛖᛖᛞ ᛁᚾ ᚲᚺᚨᚾᚷᛁᚾᚷ ᛏᚺᛁᚾᚷᛋ ᛁᚾ ᚨᚲᚲᛟᚱᛞᚨᚾᚲᛖ ᚹᛁᛏᚺ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ, ᛒᚢᛏ ᚷᚱᚨᛞᚢᚨᛚᛚᚤ ᛟᚢᚱ ᛞᛖᛋᛁᚱᛖᛋ ᚲᚺᚨᚾᚷᛖ. ᛏᚺᛖ ᛋᛁᛏᚢᚨᛏᛁᛟᚾ ᛏᚺᚨᛏ ᚹᛖ ᚺᛟᛈᛖᛞ ᛏᛟ ᚲᚺᚨᚾᚷᛖ ᛒᛖᚲᚨᚢᛋᛖ ᛁᛏ ᚹᚨᛋ ᛁᚾᛏᛟᛚᛖᚱᚨᛒᛚᛖ ᛒᛖᚲᛟᛗᛖᛋ ᚢᚾᛁᛗᛈᛟᚱᛏᚨᚾᛏ ᛏᛟ ᚢᛋ. ᚹᛖ ᚺᚨᚡᛖ ᚠᚨᛁᛚᛖᛞ ᛏᛟ ᛋᚢᚱᛗᛟᚢᚾᛏ ᛏᚺᛖ ᛟᛒᛋᛏᚨᚲᛚᛖ, ᚨᛋ ᚹᛖ ᚹᛖᚱᛖ ᚨᛒᛋᛟᛚᚢᛏᛖᛚᚤ ᛞᛖᛏᛖᚱᛗᛁᚾᛖᛞ ᛏᛟ ᛞᛟ, ᛒᚢᛏ ᛚᛁᚠᛖ ᚺᚨᛋ ᛏᚨᚴᛖᚾ ᚢᛋ ᚱᛟᚢᚾᛞ ᛁᛏ, ᛚᛖᛞ ᚢᛋ ᛒᛖᚤᛟᚾᛞ ᛁᛏ, ᚨᚾᛞ ᛏᚺᛖᚾ ᛁᚠ ᚹᛖ ᛏᚢᚱᚾ ᚱᛟᚢᚾᛞ ᛏᛟ ᚷᚨᛉᛖ ᛁᚾᛏᛟ ᛏᚺᛖ ᛞᛁᛋᛏᚨᚾᚲᛖ ᛟᚠ ᛏᚺᛖ ᛈᚨᛋᛏ, ᚹᛖ ᚲᚨᚾ ᛒᚨᚱᛖᛚᚤ ᛋᛖᛖ ᛁᛏ, ᛋᛟ ᛁᛗᛈᛖᚱᚲᛖᛈᛏᛁᛒᛚᛖ ᚺᚨᛋ ᛁᛏ ᛒᛖᚲᛟᛗᛖ.” – ᛗᚨᚱᚲᛖᛚ ᛈᚱᛟᚢᛋᛏ, ᛁᚾ ᛋᛖᚨᚱᚲᚺ ᛟᚠ ᛚᛟᛋᛏ ᛏᛁᛗᛖ",
+                },
+              },
+            },
+          },
+          function (err, t) {
+            const cross_site_object = {}
+            parseString(location.search.slice(1), this.window ? this.window : cross_site_object);
+            changeLng(this.window ? this.window["lang"] : cross_site_object["lang"]);
+            updateContent();
+          }
+        );
+        function updateContent() {
+          document.getElementById("output").innerHTML = i18next.t("key");
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        i18next.on("languageChanged", () => {
+          updateContent();
+        });
+    </script>
+  </body>
+</html>

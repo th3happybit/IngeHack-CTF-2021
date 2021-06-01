@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>i18n</title>
+    <link
+      href="{{ url_for('static', path='/css/cross_site_style.css') }}"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>ᚡᚨᛚᚺᚨᛚᚨ</h1>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <h3>Please send some urls to Floki</h3>
+      <form action="/do_report" id="reportform" method="POST">
+        <input type="text" name="url" placeholder="URL" />
+        <br />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+    <footer>
+      <address>ᛚᛖᛖᛏ</address>
+    </footer>
+  </body>
+</html>

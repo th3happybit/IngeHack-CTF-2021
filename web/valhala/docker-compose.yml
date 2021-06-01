@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  fastapi:
+    build: ./app/
+    container_name: chall-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    environment:
+      - PROJECT_NAME='Valhala'
+      - APP_ENV=local
+      - SECRET_KEY=secret
+      - DEBUG=True
+      - UVICORN_HOST=0.0.0.0
+      - UVICORN_PORT=5000
+      - UVICORN_RELOAD=True
+      - UVICORN_ACCESS_LOG=False
+      - ALLOWED_HOSTS='*'
+  bot:
+    build: ./bot/
+    container_name: chall-bot
+    init: true
+    environment:
+      - CHALLENGE_HOST=0.0.0.0
+      - CHALLENGE_COOKIE=inghack{fake_flag_for_testing}
+    depends_on:
+      - redis
+  redis:
+    image: redis:6.0-alpine
+    container_name: app-redis
+    restart: always
+    command: redis-server --loglevel verbose
+    ports:
+      - 6379:6379
