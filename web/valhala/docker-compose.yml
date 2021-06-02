@@ -8,6 +8,8 @@ services:
       - "5000:5000"
     depends_on:
       - redis
+    networks:
+      - internal
     environment:
       - PROJECT_NAME='Valhala'
       - APP_ENV=local
@@ -27,10 +29,15 @@ services:
       - CHALLENGE_COOKIE=inghack{fake_flag_for_testing}
     depends_on:
       - redis
+    networks:
+      - internal
   redis:
     image: redis:6.0-alpine
-    container_name: app-redis
+    container_name: redis
     restart: always
     command: redis-server --loglevel verbose
-    ports:
-      - 6379:6379
+    networks:
+      - internal
+
+networks:
+  internal:
