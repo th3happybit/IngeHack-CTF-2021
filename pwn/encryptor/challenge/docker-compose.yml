@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-    ingecryptor:
+    encryptor:
         build: .
         ports:
         - "1234:8000"

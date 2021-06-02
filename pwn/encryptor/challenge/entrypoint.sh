@@ -1,3 +1,3 @@
 #!/bin/bash
 
-su ingecryptor -c "python /run_server.py"
+socat -dd -T60 TCP-LISTEN:8000,reuseaddr,fork,su=encryptor EXEC:/home/encryptor/encryptor,stderr

@@ -1,12 +1,22 @@
-# make sure to activate python virtual environment first
+CC=gcc
+CFLAGS=-Wall -Wextra -pedantic -no-pie -Wl,-z,noexecstack
+LDFLAGS=
+SOURCES=encryptor.c
+OBJECTS=$(SOURCES:.c=.o)
+BINARY=encryptor
 
-all: ingecryptor venv
-	python -m pip wheel ingecryptor/ -w ./ --no-deps
+.PHONY : clean
 
-venv:
-	python -m pip install -U pip
-	python -m pip install -U ninja setuptools wheel
-	
+all: $(SOURCES) $(BINARY)
+
+$(BINARY): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+
+.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+chall: all
+	rm -f $(OBJECTS)
+
 clean:
-	rm -rf venv
-	rm -f ingecryptor-0.0.1-cp38-cp38-linux_x86_64.whl
+	rm -f $(BINARY) $(OBJECTS)

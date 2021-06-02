@@ -1,25 +1,19 @@
-#include <pybind11/pybind11.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-
-#define STRINGIFY(x) #x
-#define MACRO_STRINGIFY(x) STRINGIFY(x)
+#include <string.h>
 
 #define STATE_SIZE 256
 #define BUFFER_SIZE 256
 
-namespace py = pybind11;
-
 void get_flag()
 {
     char buffer[STATE_SIZE];
-    bzero(buffer, BUFFER_SIZE);
+    memset(buffer, 0, BUFFER_SIZE);
 
     FILE *flag_file = fopen("flag.txt", "r");
     fgets(buffer, BUFFER_SIZE, flag_file);
 
-    printf("FLAG: %s\n", buffer);
+    write(1, buffer, strlen(buffer));
 }
 
 void swap(unsigned char *a, unsigned char *b)
@@ -68,29 +62,40 @@ int pseudo_random_generation(unsigned char *state, char *plaintext, unsigned cha
     return 0;
 }
 
-py::bytes rc4(char *key, char *plaintext)
+void rc4(char *key, char *plaintext)
 {
     unsigned char state[STATE_SIZE];
     unsigned char ciphertext[BUFFER_SIZE];
 
-    printf("RC4 Init with key %s...", key);
-    bzero(ciphertext, BUFFER_SIZE);
+    memset(ciphertext, 0, BUFFER_SIZE);
 
     key_scheduling(key, state);
     pseudo_random_generation(state, plaintext, ciphertext);
 
-    std::string str_ciphertext = std::string(ciphertext, ciphertext + strlen(plaintext));
-    return py::bytes(str_ciphertext);
+    printf(ciphertext);
 }
 
-PYBIND11_MODULE(ingecryptor, m)
+int main(int argc, char **argv)
 {
-    m.def("rc4", &rc4, "rc4 cipher");
-    m.def("get_flag", &get_flag, "get flag");
+    char key[1024];
+    char plaintext[1024];
 
-#ifdef VERSION_INFO
-    m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
-#else
-    m.attr("__version__") = "dev";
-#endif
+    setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stdin, NULL, _IONBF, 0);
+
+    memset(key, 0, 1024);
+    memset(plaintext, 0, 1024);
+
+    printf("Key: \n");
+    fgets(key, 1024, stdin);
+    key[strlen(key) - 1] = '\0';
+
+    while (1)
+    {
+        printf("Data: \n");
+        fgets(plaintext, 1024, stdin);
+        plaintext[strlen(plaintext) - 1] = '\0';
+        rc4(key, plaintext);
+    }
+    return 0;
 }
