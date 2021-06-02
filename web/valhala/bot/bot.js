@@ -1,7 +1,7 @@
 const redis = require("redis");
 const r = redis.createClient({
   port: 6379,
-  host: "0.0.0.0",
+  host: "redis",
 });
 
 const puppeteer = require("puppeteer");
