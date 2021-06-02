@@ -1,1 +1,1 @@
-flag{Testing_Fl1GGGG}
+IngeHack{ECDSA_IS_GR3AT_BUT_IT_CAN_C0ST_A_LOT}
