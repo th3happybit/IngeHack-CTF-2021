@@ -1,0 +1,1 @@
+I just learned weeb dev with nextjs, and this is my first weeb application, check it out.
