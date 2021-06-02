@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+    encryptor:
+        build: .
+        ports:
+        - "1234:8000"
