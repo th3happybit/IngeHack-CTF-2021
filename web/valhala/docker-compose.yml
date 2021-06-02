@@ -26,7 +26,7 @@ services:
     init: true
     environment:
       - CHALLENGE_HOST=0.0.0.0
-      - CHALLENGE_COOKIE=inghack{fake_flag_for_testing}
+      - CHALLENGE_COOKIE=IngeHack{y0u_4r3_4_tru3_cr0ss_pr0t0_s1te_v1k1ng}
     depends_on:
       - redis
     networks:
