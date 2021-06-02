@@ -11,3 +11,7 @@ Use this tool to convert key strokes to text
 - Convert them with ctf-usb-keyboard-parser
 
 `python usbkeyboard.py data`
+
+## flag
+
+`IngeHack{i_4m_4_H4Ck3r_4Nd_THi5_i5_MT_M4nIF35t0}`
