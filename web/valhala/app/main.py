@@ -25,7 +25,8 @@ from core.config import (
 from core.redis.storage import RedisStorage
 
 def get_application() -> FastAPI:
-    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+    # disabling swagger and redoc 
+    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION, docs_url=None, redoc_url=None)
 
     # Middleware
     application.add_middleware(
@@ -43,6 +44,7 @@ app.mount("/static", StaticFiles(directory="./static"), name="static")
 templates = Jinja2Templates(directory="templates")
 r = RedisStorage()
 
+# TOdO:- adding csp 
 @app.middleware("http")
 async def CSPMiddleware(request: Request, call_next):
     response = await call_next(request)
