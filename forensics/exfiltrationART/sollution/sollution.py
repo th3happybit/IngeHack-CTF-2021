@@ -11,3 +11,6 @@ for line in DATA.split("\n"):
     if line:
         FINALDATA += "".join([chr(int(i, 16)) for i in line.split(":")])
 print(FINALDATA)
+
+
+# flag => IngeHack{luLZ_0n_Ur_F1r3W4ll_H4ck1Ng_4rP_1s_4Rt}
