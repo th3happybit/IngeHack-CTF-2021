@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+    working_dir: /home/ingehack/app
+    container_name: cataas
+    restart: always
+    ports:
+      - "5000:5000"
+    
