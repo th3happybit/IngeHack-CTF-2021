@@ -14,9 +14,15 @@ RUN pip3 install -r requirements.txt && \
 RUN mkdir /chall 
 WORKDIR /chall 
 
+RUN mkdir wasted_photos
+COPY ./wasted_photos/1.gif wasted_photos/1.gif
+COPY ./wasted_photos/2.gif wasted_photos/2.gif
+COPY ./wasted_photos/3.gif wasted_photos/3.gif
+
 COPY ./bot.py .
 COPY ./flag.txt .
 
+RUN chmod 400 wasted_photos/*
 
 RUN chown -R nobody:nogroup .
 
