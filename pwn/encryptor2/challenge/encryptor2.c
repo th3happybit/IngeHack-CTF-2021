@@ -5,17 +5,6 @@
 #define STATE_SIZE 256
 #define BUFFER_SIZE 256
 
-void get_flag()
-{
-    char buffer[STATE_SIZE];
-    memset(buffer, 0, BUFFER_SIZE);
-
-    FILE *flag_file = fopen("flag.txt", "r");
-    fgets(buffer, BUFFER_SIZE, flag_file);
-
-    write(1, buffer, strlen(buffer));
-}
-
 void swap(unsigned char *a, unsigned char *b)
 {
     int tmp = *a;
@@ -25,7 +14,6 @@ void swap(unsigned char *a, unsigned char *b)
 
 int key_scheduling(char *key, unsigned char *state)
 {
-
     int len = strlen(key);
     int j = 0;
 
@@ -94,7 +82,7 @@ int main(int argc, char **argv)
     {
         printf("Data: \n");
         fgets(plaintext, 1024, stdin);
-        plaintext[strlen(plaintext) - 1] = '\0';
+        // plaintext[strlen(plaintext) - 1] = '\0';
         rc4(key, plaintext);
     }
     return 0;

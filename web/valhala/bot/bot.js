@@ -19,8 +19,8 @@ async function browse(url) {
     name: "flag",
     value: "inghack{fake_flag_for_testing}",
     domain: "localhost",
-    secure: true,
-    samesite: "None"
+    secure: false,
+    samesite: "Strict"
   });
 
   try {

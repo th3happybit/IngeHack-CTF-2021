@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -pedantic -no-pie -Wl,-z,noexecstack
+CFLAGS=-Wall -Wextra -pedantic -no-pie -fno-stack-protector -Wl,-z,noexecstack
 LDFLAGS=
 SOURCES=encryptor.c
 OBJECTS=$(SOURCES:.c=.o)
