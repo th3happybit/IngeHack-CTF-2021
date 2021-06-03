@@ -57,11 +57,11 @@ void main()
 
         if (input != randomeChar)
         {
-            printf("You gussed it wrong! Good by");
+            printf("You guessed it wrong! Good by");
             exit(-1);
         }
     }
 
-    printf("You relly did it hah!\n");
+    printf("You really did it hah!\n");
     printFlag("flag.txt");
 }
