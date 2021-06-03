@@ -15,7 +15,7 @@ RUN mkdir /chall
 WORKDIR /chall 
 
 COPY ./bot.py .
-
+COPY ./flag.txt .
 
 
 RUN chown -R nobody:nogroup .
