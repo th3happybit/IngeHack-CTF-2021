@@ -5,34 +5,27 @@ const r = redis.createClient({
 });
 
 const puppeteer = require("puppeteer");
-require('dotenv').config()
+require("dotenv").config();
 
-const cookie = process.env.CHALLENGE_COOKIE;
-const host = process.env.CHALLENGE_HOST;
-console.log(`CHALLENGE COOKIE -> ${cookie}`);
-console.log(`CHALLENGE HOST -> ${host}`);
 async function browse(url) {
   console.log(`Browsing -> ${url}`);
-  const browser = await (
-    await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-gpu"],
-    })
-  ).createIncognitoBrowserContext();
+
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-gpu"],
+  });
 
   const page = await browser.newPage();
   await page.setCookie({
     name: "flag",
-    value: cookie,
-    domain: host,
-    sameSite: "None",
+    value: "inghack{fake_flag_for_testing}",
+    domain: "localhost",
     secure: true,
+    samesite: "None"
   });
 
   try {
-    const resp = await page.goto(url, {
-      waitUntil: "load",
-      timeout: 20 * 1000,
+    await page.goto(url, {
+      waitUntil: "networkidle2",
     });
   } catch (err) {
     console.log(err);
