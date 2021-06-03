@@ -10,7 +10,7 @@ G = curve.generator
 n = curve.order
 
 # launch the challenge
-r = process("./station.py")
+r = remote("localhost", 1337)
 received  = r.recvuntil('> ').decode()
 public_badge = re.findall(r'Here is your public badge of the day \((\d+),(\d+)\)', received)[0]
 
