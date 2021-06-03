@@ -1,5 +1,4 @@
 CHALLENGE=gusser
-USER=$(CHALLENGE)-user
 
 CC=gcc
 CFLAGS=-fno-stack-protector
