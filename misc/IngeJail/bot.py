@@ -67,7 +67,7 @@ async def ping(context):
     await context.send(embed=embed)
 
 
-blacklist=['eval', 'exec', 'import', 'open', 'os', 'read', 'system', 'write','print']
+blacklist=['eval', 'exec','execfile', 'import', 'open', 'os', 'read', 'system', 'write','print']
 
 @commands.dm_only()
 @bot.command(name="eval")
