@@ -64,8 +64,8 @@ int pseudo_random_generation(unsigned char *state, char *plaintext, unsigned cha
 
 void rc4(char *key, char *plaintext)
 {
-    unsigned char state[STATE_SIZE];
     unsigned char ciphertext[BUFFER_SIZE];
+    unsigned char state[STATE_SIZE];
 
     memset(ciphertext, 0, BUFFER_SIZE);
 
