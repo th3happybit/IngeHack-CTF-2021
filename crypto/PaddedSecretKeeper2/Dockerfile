@@ -17,7 +17,7 @@ COPY ./start.sh ./
 
 RUN chown -R root:chall /chall && \
     chmod 750 /chall && \
-    chmod 400 /chall/flag.txt && \
+    chmod 444 /chall/flag.txt && \
     chmod 550 /chall/server.py && \
     chmod 550 /chall/start.sh
 

@@ -2,7 +2,7 @@ from pwn import *
 import re 
 from base64 import b64decode,b64encode
 
-p = process("./server.py")
+p = remote("localhost",1337)
 # creating the token 
 received = p.recvuntil(">").decode()
 received_token =re.findall(r"You can use this token to get the secret padding (.*)",received)[0]
